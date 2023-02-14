@@ -26,7 +26,7 @@ function Homepage() {
         <div className={styles.buttons}>
           <Button>Hire a Tutor</Button>
           <span>or</span>
-          <Button>Become a Tutor</Button>
+          <Button type="secondary">Become a Tutor</Button>
         </div>
       </div>
       <Image
