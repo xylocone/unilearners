@@ -1,0 +1,21 @@
+@import "../styles/variables";
+.button {
+  // Display and Box Model
+  padding: 8px 12px;
+
+  // Others
+  border: none;
+  border-radius: 16px;
+  text-transform: uppercase;
+
+  &.primary {
+    // Others
+    background-color: $secondary;
+    color: white;
+  }
+
+  &.secondary {
+    // Others
+    background-color: white;
+  }
+}
