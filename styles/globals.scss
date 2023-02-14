@@ -1,8 +1,10 @@
+@import "./variables";
+
 :root {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
+}
 
-  // Variable declarations
-  $primary: rebeccapurple;
-  $secondary: blue;
+* {
+  box-sizing: border-box;
 }
