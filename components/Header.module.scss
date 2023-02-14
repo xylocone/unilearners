@@ -1,7 +1,40 @@
+@import "../styles/variables";
+
 .header {
+  // Positioning
+  position: fixed;
+  top: 0;
+  left: 0;
+
   // Display and Box Model
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  padding: 16px;
+  padding: 16px 32px;
+
+  // Others
+  color: white;
+  background-color: $primary;
+}
+
+.menu {
+  // Display and Box Model
+  padding: 8px;
+
+  // Others
+  border: none;
+  color: white;
+  background: transparent;
+
+  span {
+    // Display and Box Model
+    display: inline-block;
+    margin-left: 4px;
+
+    // Others
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
