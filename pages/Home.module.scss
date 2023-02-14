@@ -1,0 +1,52 @@
+@import "../styles/variables";
+
+.home {
+  // Positioning
+  position: relative;
+
+  // Display and Box Model
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+
+  // Others
+  background: linear-gradient(
+    $primary 70%,
+    tint($primary, 20%) 90%,
+    tint($primary, 30%)
+  );
+  text-align: center;
+  color: white;
+
+  .content {
+    // Others
+    transform: translateY(-5vh);
+  }
+
+  .heading {
+    // Others
+    font-size: 3rem;
+    margin: 16px 0;
+  }
+
+  .buttons {
+    // Display and Box Model
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .image {
+    // Positioning
+    position: absolute;
+    bottom: 64px;
+
+    // Display and Box Model
+    width: 60vw;
+    height: auto;
+  }
+}
