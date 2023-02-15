@@ -1,0 +1,14 @@
+.button {
+  // Positioning
+  position: fixed;
+  bottom: 64px;
+  right: 64px;
+
+  // Display and Box Model
+  padding: 8px;
+
+  // Others
+  background-color: green;
+  color: white;
+  border-radius: 8px;
+}
