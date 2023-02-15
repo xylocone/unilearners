@@ -50,3 +50,111 @@
     height: auto;
   }
 }
+
+.whyus {
+  // Positioning
+  position: relative;
+
+  // Display and Box Model
+  padding: 64px 32px;
+
+  // Others
+  background-color: $primary-white;
+
+  .shapes {
+    .shape1 {
+      // Positioning
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+
+      // Display and Box Model
+      height: 75px;
+      width: 100%;
+
+      // Others
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+      background-color: tint($primary, 50%);
+    }
+
+    .shape2 {
+      // Positioning
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+
+      // Display and Box Model
+      height: 75px;
+      width: 100%;
+
+      // Others
+      clip-path: polygon(0 0, 100% 0, 0 80%, 0 0);
+
+      background-color: tint($secondary, 50%);
+    }
+  }
+}
+
+.counters {
+  // Display and Box Model
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 32px 16px;
+  gap: 16px;
+}
+
+.services {
+  // Display and Box Model
+  padding: 64px 32px;
+
+  // Others
+  background-color: $primary;
+
+  .title {
+    // Others
+    color: white;
+  }
+
+  .container {
+    // Display and Box Model
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.contact {
+  // Display and Box Model
+  padding: 64px 32px;
+
+  // Others
+  background-color: $secondary-white;
+
+  .contacts {
+    // Display and Box Model
+    padding: 0;
+
+    // Others
+    list-style-type: none;
+
+    li {
+      padding: 4px 0;
+    }
+  }
+
+  .map {
+    // Display and Box Model
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 16px;
+
+    // Others
+    border-radius: 16px;
+    background-color: #eee;
+  }
+}

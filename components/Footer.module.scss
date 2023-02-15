@@ -1,0 +1,33 @@
+.footer {
+  // Display and Box Model
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+
+  // Others
+  background-color: black;
+  color: white;
+  text-align: center;
+
+  .menu {
+    // Display and Box Model
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .copyright,
+  .attribution {
+    // Display and Box Model
+    margin: 0;
+  }
+}

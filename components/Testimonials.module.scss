@@ -1,0 +1,11 @@
+@import "../styles/variables";
+
+.testimonials {
+  // Display and Box Model
+  padding: 32px;
+
+  // Others
+  background-color: $primary;
+  color: white;
+  border-radius: 16px;
+}

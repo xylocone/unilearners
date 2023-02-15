@@ -1,4 +1,31 @@
+@import "../styles/variables";
+
 .counter {
+  // Display and Box Model
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+
   // Others
-  background-color: white;
+  text-align: center;
+
+  span {
+    // Display and Box Model
+    display: block;
+  }
+
+  .value {
+    // Others
+    color: $secondary;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .label {
+    // Others
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }

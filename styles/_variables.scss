@@ -1,7 +1,3 @@
-// Variable declarations
-$primary: #0f27f6;
-$secondary: #ff2b87;
-
 // Function definitions
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
@@ -10,3 +6,10 @@ $secondary: #ff2b87;
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+// Variable declarations
+$primary: #0f27f6;
+$secondary: #ff2b87;
+
+$primary-white: tint($primary, 90%);
+$secondary-white: tint($secondary, 90%);
