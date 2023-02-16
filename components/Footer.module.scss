@@ -15,9 +15,15 @@
   .menu {
     // Display and Box Model
     display: flex;
-    gap: 16px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+
+    @media screen and (min-width: 768px) {
+      gap: 16px;
+      flex-direction: row;
+    }
 
     a {
       color: white;

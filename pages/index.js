@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Counter from "../components/Counter";
 import Service from "../components/Service";
+import Waves from "../components/Waves";
+import Map from "../components/Map";
 
 import styles from "./Home.module.scss";
 
@@ -14,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Homepage />
+      <Hero />
       <WhyUs />
       <Services />
       <Contact />
@@ -23,27 +25,33 @@ export default function Home() {
   );
 }
 
-function Homepage() {
+function Hero() {
   return (
-    <div className={styles.home}>
+    <div className={styles.hero}>
       <div className={styles.content}>
-        <h1 className={styles.heading}>UniLearners</h1>
-        <h3 className={styles.subheading}>
-          Your child&apos;s future is our responsibility.
-        </h3>
-        <div className={styles.buttons}>
-          <Button>Hire a Tutor</Button>
-          <span>or</span>
-          <Button type="secondary">Become a Tutor</Button>
+        <div className={styles.text}>
+          <h1 className={styles.heading}>UniLearners</h1>
+          <h3 className={styles.subheading}>
+            Your child&apos;s future is our responsibility.
+          </h3>
+          <div className={styles.buttons}>
+            <Button>Hire a Tutor</Button>
+            <span>or</span>
+            <Button type="secondary">Become a Tutor</Button>
+          </div>
+        </div>
+        <div className={styles.image}>
+          <Image
+            className={styles.illustration}
+            src="/home.png"
+            alt="Illustration"
+            fill
+          />
         </div>
       </div>
-      <Image
-        className={styles.image}
-        src="/home.png"
-        alt="Illustration"
-        width={100}
-        height={100}
-      />
+      <div className={styles.background}>
+        <Waves />
+      </div>
     </div>
   );
 }
@@ -51,7 +59,7 @@ function Homepage() {
 function WhyUs() {
   return (
     <div className={styles.whyus}>
-      <div className={styles.shapes}>
+      <div className={styles.background}>
         <div className={styles.shape1}></div>
         <div className={styles.shape2}></div>
       </div>
@@ -64,6 +72,9 @@ function WhyUs() {
         </p>
         <Testimonials />
         <div className={styles.counters}>
+          <Counter val={10} plus={true}>
+            Subjects Taught
+          </Counter>
           <Counter val={45} plus={true}>
             Qualified Teachers
           </Counter>
@@ -135,7 +146,7 @@ function Contact() {
             <b>John:</b> +915647816488
           </li>
         </ul>
-        <div className={styles.map}>Here will be the map</div>
+        <Map />
       </div>
     </div>
   );

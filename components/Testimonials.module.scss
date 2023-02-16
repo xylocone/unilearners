@@ -3,6 +3,8 @@
 .testimonials {
   // Display and Box Model
   padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
 
   // Others
   background-color: $primary;

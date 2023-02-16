@@ -1,9 +1,13 @@
 @import "../styles/variables";
 .button {
   // Display and Box Model
-  padding: 8px 12px;
+  padding: 12px 16px;
+  margin: 4px;
 
   // Others
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
   border: none;
   border-radius: 16px;
   text-transform: uppercase;

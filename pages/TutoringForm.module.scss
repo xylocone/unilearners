@@ -1,0 +1,12 @@
+@import "../styles/variables";
+
+.tutoring {
+  // Others
+  background-color: $primary-white;
+
+  .content {
+    // Display and Box Model
+    min-height: 100vh;
+    padding: 128px 32px;
+  }
+}

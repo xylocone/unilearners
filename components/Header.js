@@ -1,36 +1,60 @@
-import { useRef, forwardRef } from "react";
+import { useRef, useState, forwardRef } from "react";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
+import clsx from "clsx";
 
-const NavBar = forwardRef(function NavBar(_props, ref) {
+// Internal dependencies
+import Button from "../components/Button.js";
+import styles from "./Header.module.scss";
+
+const NavBar = forwardRef(function NavBar({ className }, ref) {
   return (
-    <div className={styles.navbar} ref={ref}>
-      <Link href={"/"}>Home</Link>
-      <Link href={"#whyus"}>Why Us</Link>
-      <Link href={"#services"}>Our Services</Link>
-      <Link href={"/hiring"}>Hire a Tutor</Link>
-      <Link href={"/tutoring"}>Become a Tutor</Link>
+    <div
+      className={clsx({
+        [styles.navbar]: true,
+        [className]: true,
+      })}
+      ref={ref}
+    >
+      <div className={styles.content}>
+        <div className={styles.links}>
+          <Link href={"/"}>Home</Link>
+          <Link href={"#whyus"}>Why Us</Link>
+          <Link href={"#services"}>Our Services</Link>
+        </div>
+        <div className={styles.buttons}>
+          <Link href={"/hiring"}>
+            <Button>Hire a Tutor</Button>
+          </Link>
+          <Link href={"/tutoring"}>
+            <Button type="secondary">Become a Tutor</Button>
+          </Link>
+        </div>
+      </div>
+      <div className={styles.background}>
+        <div className={styles.background1}></div>
+        <div className={styles.background2}></div>
+      </div>
     </div>
   );
 });
 
-// Internal dependencies
-import * as styles from "./Header.module.scss";
-
 export default function Header() {
   const navbarElement = useRef(null);
-
-  function handleToggle() {
-    navbarElement.current.classList.toggle("visible");
-  }
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <>
       <header className={styles.header}>
         <Logo />
-        <MenuButton onClick={() => handleToggle()} />
+        <MenuButton onClick={() => setIsNavOpen((isNavOpen) => !isNavOpen)} />
       </header>
-      <NavBar ref={navbarElement} />
+      <NavBar
+        ref={navbarElement}
+        className={clsx({
+          [styles.visible]: isNavOpen,
+        })}
+      />
     </>
   );
 }
@@ -45,5 +69,5 @@ function MenuButton({ onClick }) {
 }
 
 function Logo() {
-  return <p className={styles.logo}>Uni</p>;
+  return <p>Uni</p>;
 }

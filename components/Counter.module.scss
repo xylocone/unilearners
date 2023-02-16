@@ -28,4 +28,12 @@
     text-transform: uppercase;
     font-weight: 500;
   }
+
+  &:last-of-type {
+    grid-column: 3 / 1;
+
+    @media screen and (min-width: 768px) {
+      grid-column: unset;
+    }
+  }
 }

@@ -1,0 +1,12 @@
+.map {
+  // Display and Box Model
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 400px;
+  margin: 0 auto;
+
+  // Others
+  border-radius: 8px;
+  border: none;
+}

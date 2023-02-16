@@ -1,6 +1,6 @@
 @import "../styles/variables";
 
-.home {
+.hero {
   // Positioning
   position: relative;
 
@@ -13,41 +13,88 @@
 
   // Others
   background: linear-gradient(
-    $primary 70%,
-    tint($primary, 20%) 90%,
-    tint($primary, 30%)
+    to bottom right,
+    $primary 30%,
+    tint($primary, 20%) 50%,
+    tint($tertiary, 30%)
   );
   text-align: center;
   color: white;
 
   .content {
-    // Others
-    transform: translateY(-5vh);
-  }
-
-  .heading {
-    // Others
-    font-size: 3rem;
-    margin: 16px 0;
-  }
-
-  .buttons {
     // Display and Box Model
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 16px;
+
+    @media screen and (min-width: 768px) {
+      width: 100%;
+      flex-direction: row;
+      gap: 32px;
+
+      .text {
+        // Display and Box Model
+        padding: 0 16px;
+
+        // Others
+        border-right: 2px solid $secondary;
+
+        .buttons {
+          flex-direction: row !important;
+        }
+      }
+    }
+
+    .text {
+      // Display and Box Model
+      width: 100%;
+
+      .heading {
+        // Others
+        font-size: 3rem;
+        margin: 16px 0;
+      }
+
+      .buttons {
+        // Display and Box Model
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+    }
+
+    .image {
+      // Positioning
+      position: relative;
+
+      // Display and Box Model
+      max-width: 350px;
+      width: 80%;
+      aspect-ratio: 1;
+
+      .illustration {
+        // Others
+        object-fit: contain;
+      }
+    }
   }
 
-  .image {
+  .background {
     // Positioning
     position: absolute;
-    bottom: 64px;
+    top: 0;
+    left: 0;
 
     // Display and Box Model
-    width: 60vw;
-    height: auto;
+    height: 100%;
+    width: 100%;
+
+    // Others
+    pointer-events: none;
   }
 }
 
@@ -56,16 +103,28 @@
   position: relative;
 
   // Display and Box Model
-  padding: 64px 32px;
+  padding: 96px 64px;
 
   // Others
   background-color: $primary-white;
 
-  .shapes {
+  .background {
+    // Positioning
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // Display and Box Model
+    height: 100%;
+    width: 100%;
+
+    // Others
+    pointer-events: none;
+
     .shape1 {
       // Positioning
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       z-index: 10;
 
@@ -74,23 +133,24 @@
       width: 100%;
 
       // Others
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+      clip-path: polygon(0 0, 100% 100%, 0 100%, 0 0);
       background-color: tint($primary, 50%);
+      opacity: 0.5;
     }
 
     .shape2 {
       // Positioning
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       z-index: 5;
 
       // Display and Box Model
-      height: 75px;
+      height: 100px;
       width: 100%;
 
       // Others
-      clip-path: polygon(0 0, 100% 0, 0 80%, 0 0);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
 
       background-color: tint($secondary, 50%);
     }
@@ -103,17 +163,29 @@
   grid-template-columns: 1fr 1fr;
   padding: 32px 16px;
   gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .services {
   // Display and Box Model
-  padding: 64px 32px;
+  padding: 96px 32px;
+
+  @media screen and (min-width: 768px) {
+    padding: 96px 64px;
+  }
 
   // Others
   background-color: $primary;
 
   .title {
+    // Display and Box Model
+    margin-bottom: 64px;
+
     // Others
+    text-align: center;
     color: white;
   }
 
@@ -124,6 +196,11 @@
     justify-content: center;
     flex-direction: column;
     gap: 16px;
+
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 
