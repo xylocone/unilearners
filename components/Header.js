@@ -4,7 +4,9 @@ import { AiOutlineMenu } from "react-icons/ai";
 import clsx from "clsx";
 
 // Internal dependencies
-import Button from "../components/Button.js";
+import Button from "../components/Button";
+import Logo from "../components/Logo";
+
 import styles from "./Header.module.scss";
 
 const NavBar = forwardRef(function NavBar({ className }, ref) {
@@ -46,7 +48,7 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <Logo />
+        <Logo fill="#fff" />
         <MenuButton onClick={() => setIsNavOpen((isNavOpen) => !isNavOpen)} />
       </header>
       <NavBar
@@ -66,8 +68,4 @@ function MenuButton({ onClick }) {
       <span>Menu</span>
     </button>
   );
-}
-
-function Logo() {
-  return <p>Uni</p>;
 }

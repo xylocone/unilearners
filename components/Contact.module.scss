@@ -1,0 +1,102 @@
+@import "../styles/variables";
+
+.contact {
+  // Display and Box Model
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  max-width: 500px;
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+  }
+
+  // Others
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 0 $primary;
+
+  .image {
+    // Display and Box Model
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+
+    height: 6vmax;
+    width: 6vmax;
+    padding: 8px;
+
+    // Others
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 4px #ddd;
+  }
+
+  .details {
+    // Display and Box Model
+    flex-basis: 0;
+    flex-grow: 6;
+
+    padding: 16px;
+
+    > span {
+      // Display and Box Model
+      display: block;
+      white-space: nowrap;
+    }
+
+    .name {
+      // Display and Box Model
+      margin-bottom: 4px;
+
+      // Others
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+
+  .buttons {
+    // Display and Box Model
+    flex-basis: 0;
+    flex-grow: 2;
+
+    > a {
+      display: block;
+    }
+
+    button {
+      // Display and Box Model
+      padding: 4px;
+      height: 4vmax;
+      width: 4vmax;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // Others
+      border: none;
+      border-radius: 50%;
+
+      svg {
+        color: white;
+      }
+    }
+
+    .call {
+      // Display and Box Model
+      margin-bottom: 8px;
+
+      // Others
+      background-color: #2672de;
+    }
+
+    .whatsapp {
+      // Others
+      background-color: #16d97e;
+    }
+  }
+}

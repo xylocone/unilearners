@@ -15,7 +15,9 @@ export default function Footer() {
 function FooterMenu() {
   return (
     <div className={styles.menu}>
-      <Link href={"/"}>Home</Link>
+      <Link href={"#hero"} scroll={false}>
+        Home
+      </Link>
       <Link href={"/hiring"}>Hire a Tutor</Link>
       <Link href={"/tutoring"}>Become a Tutor</Link>
     </div>

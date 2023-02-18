@@ -2,9 +2,13 @@
   // Display and Box Model
   display: block;
   width: 100%;
-  aspect-ratio: 1;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
+  aspect-ratio: 1;
+
+  @media screen and (min-width: 768px) {
+    aspect-ratio: 4/2;
+  }
 
   // Others
   border-radius: 8px;

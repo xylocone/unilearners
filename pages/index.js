@@ -1,14 +1,20 @@
-import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import clsx from "clsx";
 
 // Internal dependencies
 import Header from "../components/Header";
 import Button from "../components/Button";
+import Image from "../components/Image";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Counter from "../components/Counter";
 import Service from "../components/Service";
 import Waves from "../components/Waves";
+import RoundedSquares from "../components/RoundedSquares";
 import Map from "../components/Map";
+import { default as ContactComponent } from "../components/Contact";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 import styles from "./Home.module.scss";
 
@@ -20,15 +26,29 @@ export default function Home() {
       <WhyUs />
       <Services />
       <Contact />
+      <WhatsAppButton />
       <Footer />
     </>
   );
 }
 
 function Hero() {
+  const { inView, ref } = useInView({ threshold: 0.3 });
+  const [hasComeIntoView, setHasComeIntoView] = useState(false);
+
+  useEffect(() => {
+    if (inView) setHasComeIntoView(true);
+  }, [inView]);
+
   return (
-    <div className={styles.hero}>
-      <div className={styles.content}>
+    <div className={styles.hero} id="hero">
+      <div
+        className={clsx({
+          [styles.content]: true,
+          [styles.inView]: hasComeIntoView,
+        })}
+        ref={ref}
+      >
         <div className={styles.text}>
           <h1 className={styles.heading}>
             <span className={styles.uni}>Uni </span>Learners
@@ -45,9 +65,8 @@ function Hero() {
         <div className={styles.image}>
           <Image
             className={styles.illustration}
-            src="/home.png"
+            src="/Home.svg"
             alt="Illustration"
-            fill
           />
         </div>
       </div>
@@ -59,13 +78,26 @@ function Hero() {
 }
 
 function WhyUs() {
+  const { inView, ref } = useInView({ threshold: 0.3 });
+  const [hasComeIntoView, setHasComeIntoView] = useState(false);
+
+  useEffect(() => {
+    if (inView) setHasComeIntoView(true);
+  }, [inView]);
+
   return (
     <div className={styles.whyus}>
       <div className={styles.background}>
         <div className={styles.shape1}></div>
         <div className={styles.shape2}></div>
       </div>
-      <div className={styles.content}>
+      <div
+        className={clsx({
+          [styles.content]: true,
+          [styles.inView]: hasComeIntoView,
+        })}
+        ref={ref}
+      >
         <h1>Why Us?</h1>
         <p>
           We at UniLearners are loved by both students and parents alike;
@@ -90,6 +122,13 @@ function WhyUs() {
 }
 
 function Services() {
+  const { inView, ref } = useInView({ threshold: 0.3 });
+  const [hasComeIntoView, setHasComeIntoView] = useState(false);
+
+  useEffect(() => {
+    if (inView) setHasComeIntoView(true);
+  }, [inView]);
+
   const services = [
     {
       title: "Home Tuitions",
@@ -123,7 +162,13 @@ function Services() {
 
   return (
     <div className={styles.services}>
-      <div className={styles.content}>
+      <div
+        className={clsx({
+          [styles.content]: true,
+          [styles.inView]: hasComeIntoView,
+        })}
+        ref={ref}
+      >
         <h1 className={styles.title}>We Provide</h1>
         <div className={styles.container}>
           {services.map(({ title, description }) => (
@@ -131,24 +176,49 @@ function Services() {
           ))}
         </div>
       </div>
+      <div className={styles.background}>
+        <RoundedSquares />
+      </div>
     </div>
   );
 }
 
 function Contact() {
+  const { inView, ref } = useInView({ threshold: 0.3 });
+  const [hasComeIntoView, setHasComeIntoView] = useState(false);
+
+  useEffect(() => {
+    if (inView) setHasComeIntoView(true);
+  }, [inView]);
   return (
     <div className={styles.contact}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Contact Us</h1>
-        <ul className={styles.contacts}>
-          <li>
-            <b>Sandy:</b> +918989457877
-          </li>
-          <li>
-            <b>John:</b> +915647816488
-          </li>
-        </ul>
-        <Map />
+      <div
+        className={clsx({
+          [styles.content]: true,
+          [styles.inView]: hasComeIntoView,
+        })}
+        ref={ref}
+      >
+        <h1 className={styles.heading}>Contact Us</h1>
+        <p className={styles.subheading}>
+          We would love to hear back from you!
+        </p>
+        <div className={styles.contacts}>
+          <ContactComponent
+            imgPath={"/home.png"}
+            name="Arjun Singh"
+            number="+91 123456789"
+          />
+          <ContactComponent
+            imgPath={"/home.png"}
+            name="Peter Fernandez"
+            number="+91 123456789"
+          />
+        </div>
+        <Map className={styles.map} />
+        <p className={styles.address}>
+          CSD Depot, Anand Nagar, Jail Road, Alambagh, Lucknow
+        </p>
       </div>
     </div>
   );

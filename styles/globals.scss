@@ -9,3 +9,13 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent; // remove tap highlighting on mobile devices
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+// react-card-flip
+.react-card-flip {
+  // Display and Box Model
+  height: 100%;
+}
