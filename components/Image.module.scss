@@ -1,0 +1,20 @@
+.container {
+  // Display and Box Model
+  width: 100%;
+
+  > div {
+    position: unset !important;
+  }
+
+  .image {
+    // Positioning
+    position: relative !important;
+
+    // Display and Box Model
+    height: unset !important;
+    width: 100% !important;
+
+    // Others
+    object-fit: contain;
+  }
+}
