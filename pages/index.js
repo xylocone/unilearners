@@ -30,7 +30,9 @@ function Hero() {
     <div className={styles.hero}>
       <div className={styles.content}>
         <div className={styles.text}>
-          <h1 className={styles.heading}>UniLearners</h1>
+          <h1 className={styles.heading}>
+            <span className={styles.uni}>Uni </span>Learners
+          </h1>
           <h3 className={styles.subheading}>
             Your child&apos;s future is our responsibility.
           </h3>
