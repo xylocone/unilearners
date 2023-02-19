@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
 import Link from "next/link";
+import Head from "next/head";
 
 // Internal dependencies
 import Header from "../components/Header";
@@ -22,6 +23,29 @@ import styles from "./Home.module.scss";
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>UniLearners | Quality Education, Online and Offline</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
       <Header />
       <Hero />
       <WhyUs />
@@ -211,13 +235,13 @@ function Contact() {
         </p>
         <div className={styles.contacts}>
           <ContactComponent
-            imgPath={"/home.png"}
+            imgPath={"/Male.svg"}
             name="Arjun Singh"
             number="+91 123456789"
           />
           <ContactComponent
-            imgPath={"/home.png"}
-            name="Peter Fernandez"
+            imgPath={"/Female.svg"}
+            name="Julia Roberts"
             number="+91 123456789"
           />
         </div>

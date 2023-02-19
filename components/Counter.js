@@ -10,9 +10,9 @@ export default function Counter({ val, children, plus }) {
   const countRef = useRef(null);
 
   const { start } = useCountUp({
-    start: Math.max(0, val - 30),
+    start: Math.max(0, val - 50),
     end: val,
-    duration: 0.5,
+    duration: 1,
     suffix: plus ? "+" : "",
     ref: countRef,
   });

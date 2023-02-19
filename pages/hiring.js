@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, forwardRef } from "react";
 import { TagsInput } from "react-tag-input-component";
 import ReactCardFlip from "react-card-flip";
+import ReactSwitch from "react-switch";
 
 // Internal dependencies
 import Header from "../components/Header";
@@ -67,6 +68,7 @@ const Form = forwardRef(function Form(
 ) {
   const [subjects, setSubjects] = useState([]);
   const [hobbies, setHobbies] = useState([]);
+  const [isOnline, setIsOnline] = useState(true);
 
   function handleButtonClick() {
     ref.current.submit();
@@ -106,6 +108,11 @@ const Form = forwardRef(function Form(
               name="hiring_subjects"
               placeHolder="Enter subjects here"
             />
+          </div>
+          <div>
+            <label htmlFor="hiring_subjects">Online Mode?</label>
+            <br />
+            <ReactSwitch onChange={setIsOnline} checked={isOnline} />
           </div>
           <div>
             <label htmlFor="hiring_hobbies">Hobby Classes</label>
