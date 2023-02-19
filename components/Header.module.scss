@@ -27,12 +27,18 @@
 
   &.menuopen {
     // Others
-    background-color: rgba(0, 0, 0, 0.25);
+    transform: none;
+    background-color: rgba(0, 0, 0, 0.25) !important;
   }
 
   &.dark {
     // Others
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.95) !important;
+
+    &.menuopen {
+      // Others
+      background-color: rgba(0, 0, 0, 0.25) !important;
+    }
   }
 }
 
@@ -152,7 +158,7 @@
       z-index: 5;
 
       // Others
-      background-color: $tertiary;
+      background: linear-gradient(lime, $tertiary);
 
       transition-delay: 0.4s;
     }

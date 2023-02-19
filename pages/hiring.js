@@ -27,10 +27,10 @@ export default function HiringForm() {
 
   return (
     <>
-      <Header />
+      <Header dark />
       <div className={styles.hiring}>
         <div className={styles.content}>
-          <h2 className={styles.heading}>Hire a Tutor</h2>
+          <h1 className={styles.heading}>Hire a Tutor</h1>
           <p className={styles.subheading}>
             Hire an experienced tutor from UniLearners! Just fill out the form
             below and we&apos;ll get right back to you!
@@ -108,7 +108,7 @@ const Form = forwardRef(function Form(
             />
           </div>
           <div>
-            <label htmlFor="hiring_hobbies">Hobbies</label>
+            <label htmlFor="hiring_hobbies">Hobby Classes</label>
             <TagsInput
               value={hobbies}
               onChange={setHobbies}

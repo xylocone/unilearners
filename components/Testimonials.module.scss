@@ -1,13 +1,78 @@
 @import "../styles/variables";
 
 .testimonials {
+  // Positioning
+  position: relative;
+
   // Display and Box Model
-  padding: 32px;
   max-width: 600px;
   margin: 0 auto;
+  padding: 32px 0;
 
   // Others
-  background-color: $primary;
+  background-color: tint($primary, 5%);
   color: white;
   border-radius: 16px;
+  overflow-x: hidden;
+
+  .quote {
+    // Positioning
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 5;
+
+    // Others
+    font-size: 2rem;
+  }
+
+  .container {
+    // Display and Box Model
+    width: 300%;
+    display: flex;
+    gap: 32px;
+    padding: 16px;
+
+    // Others
+    animation: slide 15s linear infinite;
+
+    .slide {
+      // Display and Box Model
+      flex-basis: 0;
+      flex-grow: 1;
+
+      .attribution {
+        // Others
+        text-transform: uppercase;
+        font-weight: 500;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: none;
+  }
+
+  35% {
+    transform: none;
+  }
+
+  37% {
+    transform: translateX(-33.33%);
+  }
+
+  62% {
+    transform: translateX(-33.33%);
+  }
+
+  64% {
+    transform: translateX(-66.66%);
+  }
+
+  98% {
+    transform: translate(-66.66%);
+  }
 }

@@ -1,12 +1,161 @@
 @import "../styles/variables";
 
 .tutoring {
+  // Positioning
+  position: relative;
+
+  // Display and Box Model
+  min-height: 100vh;
+  padding: 96px 64px;
+
   // Others
-  background-color: $primary-white;
+  background-color: tint($primary, 95%);
 
   .content {
+    // Positioning
+    position: relative;
+    z-index: 10;
+
     // Display and Box Model
-    min-height: 100vh;
-    padding: 128px 32px;
+    height: 100%;
+    width: 100%;
+
+    .subheading {
+      // Display and Box Model
+      max-width: 60ch;
+      margin-bottom: 32px;
+    }
+
+    .container {
+      // Display and Box Model
+      display: flex;
+      flex-direction: row-reverse;
+
+      .illustration {
+        // Display and Box Model
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        flex-basis: 0;
+        flex-grow: 2;
+
+        padding: 32px;
+
+        // Others
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 0 16px 16px 0;
+        border: 1px solid #ddd;
+
+        @media screen and (min-width: 768px) {
+          display: flex;
+        }
+      }
+
+      .stack {
+        // Display and Box Model
+        height: 100%;
+        width: 100%;
+        padding: 16px;
+
+        flex-basis: 0;
+        flex-grow: 3;
+
+        // Others
+        border-radius: 16px;
+        background-color: tint($secondary, 60%);
+
+        @media screen and (min-width: 768px) {
+          border-radius: 16px 0 0 16px;
+        }
+
+        .form {
+          // Display and Box Model
+          padding: 16px;
+          max-width: 600px;
+          width: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 16px;
+
+          > div {
+            // Display and Box Model
+            width: 100%;
+
+            label {
+              // Display and Box Model
+              display: inline-block;
+              margin-bottom: 8px;
+
+              // Others
+              text-transform: uppercase;
+              font-weight: 500;
+            }
+
+            input {
+              // The react-tag-input-component input
+
+              // Display and Box Model
+              width: 100%;
+            }
+
+            > input {
+              // Custom inputs
+
+              // Display and Box Model
+              display: block;
+              padding: 8px;
+
+              border: none;
+              border-radius: 16px;
+
+              &:active,
+              &:focus {
+                // Others
+                outline: none;
+              }
+            }
+
+            > button {
+              // Display and Box Model
+              display: block;
+              margin: 0 auto;
+
+              // Others
+              background-color: black;
+            }
+          }
+        }
+
+        .flippedform {
+          // Display and Box Model
+          height: 100%;
+          width: 100%;
+          padding: 32px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          /* Others */
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .background {
+    // Positioning
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // Display and Box Model
+    height: 100%;
+    width: 100%;
   }
 }

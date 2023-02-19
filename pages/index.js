@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
+import Link from "next/link";
 
 // Internal dependencies
 import Header from "../components/Header";
@@ -57,9 +58,13 @@ function Hero() {
             Your child&apos;s future is our responsibility.
           </h3>
           <div className={styles.buttons}>
-            <Button>Hire a Tutor</Button>
+            <Link href={"/hiring"}>
+              <Button>Hire a Tutor</Button>
+            </Link>
             <span>or</span>
-            <Button type="secondary">Become a Tutor</Button>
+            <Link href={"/tutoring"}>
+              <Button type="secondary">Become a Tutor</Button>
+            </Link>
           </div>
         </div>
         <div className={styles.image}>
@@ -72,6 +77,7 @@ function Hero() {
       </div>
       <div className={styles.background}>
         <Waves />
+        <RoundedSquares />
       </div>
     </div>
   );
