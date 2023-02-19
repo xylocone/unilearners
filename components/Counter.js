@@ -1,12 +1,21 @@
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { useCountUp } from "react-countup";
 
 // Internal dependencies
 import styles from "./Counter.module.scss";
 
 export default function Counter({ val, children, plus }) {
   const [hasComeIntoView, setHasComeIntoView] = useState(false);
-  const [currentValue, setCurrentValue] = useState(Math.max(val - 20, 0));
+  const countRef = useRef(null);
+
+  const { start } = useCountUp({
+    start: Math.max(0, val - 30),
+    end: val,
+    duration: 0.5,
+    suffix: plus ? "+" : "",
+    ref: countRef,
+  });
 
   const { ref, inView } = useInView({ threshold: 0.5 });
 
@@ -14,12 +23,15 @@ export default function Counter({ val, children, plus }) {
     if (!hasComeIntoView && inView) setHasComeIntoView(true);
   }, [inView]);
 
+  useEffect(() => {
+    if (hasComeIntoView) {
+      start(0);
+    }
+  }, [hasComeIntoView]);
+
   return (
     <div className={styles.counter} ref={ref}>
-      <span className={styles.value}>
-        {currentValue}
-        {plus && "+"}
-      </span>
+      <span className={styles.value} ref={countRef}></span>
       <span className={styles.label}>{children}</span>
     </div>
   );
