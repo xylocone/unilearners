@@ -6,7 +6,11 @@
 
   // Display and Box Model
   min-height: 100vh;
-  padding: 96px 64px;
+  padding: 96px 32px;
+
+  @media screen and (min-height: 768px) {
+    padding: 96px 64px;
+  }
 
   // Others
   background-color: tint($primary, 95%);

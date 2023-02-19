@@ -215,9 +215,28 @@
       flex-direction: column;
       gap: 16px;
 
+      // // Others
+      // overflow-x: hidden;
+
       @media screen and (min-width: 768px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
+      }
+
+      > * {
+        opacity: 0.5;
+        transition: 0.25s ease transform, 0.25s ease opacity;
+        transition-delay: 0.25s;
+      }
+
+      > *:nth-of-type(even) {
+        transform: translateX(100vw);
+        opacity: 0.5;
+      }
+
+      > *:nth-of-type(odd) {
+        transform: translateX(-100vw);
+        opacity: 0.5;
       }
     }
   }
@@ -304,6 +323,19 @@
     &.inView {
       opacity: 1;
       transform: none;
+    }
+  }
+}
+
+.services {
+  .content {
+    &.inView {
+      .container {
+        * {
+          transform: none;
+          opacity: 1;
+        }
+      }
     }
   }
 }
