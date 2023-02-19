@@ -5,6 +5,7 @@
   position: fixed;
   bottom: 32px;
   left: 32px;
+  z-index: 250;
 
   // Display and Box Model
   height: 6vmax;
@@ -17,7 +18,7 @@
   // Others
   cursor: pointer;
   font-size: 1.2rem;
-  background-color: $tertiary;
+  background-color: shade($tertiary, 20%);
   border: none;
   border-radius: 50%;
 

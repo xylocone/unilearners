@@ -86,7 +86,7 @@ function WhyUs() {
   }, [inView]);
 
   return (
-    <div className={styles.whyus}>
+    <div className={styles.whyus} id="whyus">
       <div className={styles.background}>
         <div className={styles.shape1}></div>
         <div className={styles.shape2}></div>
@@ -161,7 +161,7 @@ function Services() {
   ];
 
   return (
-    <div className={styles.services}>
+    <div className={styles.services} id="services">
       <div
         className={clsx({
           [styles.content]: true,
@@ -191,7 +191,7 @@ function Contact() {
     if (inView) setHasComeIntoView(true);
   }, [inView]);
   return (
-    <div className={styles.contact}>
+    <div className={styles.contact} id="contact">
       <div
         className={clsx({
           [styles.content]: true,
