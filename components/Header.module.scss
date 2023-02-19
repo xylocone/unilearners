@@ -17,6 +17,23 @@
 
   // Others
   color: white;
+  transition: 0.25s ease transform, 0.25s linear background-color;
+  background-color: rgba(0, 0, 0, var(--transparency));
+
+  &.hidden {
+    // Others
+    transform: translateY(-100%);
+  }
+
+  &.menuopen {
+    // Others
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  &.dark {
+    // Others
+    background-color: rgba(0, 0, 0, 0.75);
+  }
 }
 
 .menu {

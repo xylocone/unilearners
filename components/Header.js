@@ -1,7 +1,8 @@
-import { useRef, useState, forwardRef } from "react";
+import { useRef, useState, forwardRef, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
 import clsx from "clsx";
+import { useRouter } from "next/router";
 
 // Internal dependencies
 import Button from "../components/Button";
@@ -9,7 +10,19 @@ import Logo from "../components/Logo";
 
 import styles from "./Header.module.scss";
 
-const NavBar = forwardRef(function NavBar({ className }, ref) {
+const NavBar = forwardRef(function NavBar({ className, setIsNavOpen }, ref) {
+  const router = useRouter();
+
+  const contentRef = useRef(null);
+
+  function handleClick(e, path) {
+    e.preventDefault();
+    setIsNavOpen(false);
+
+    contentRef.current.ontransitionend = () =>
+      router.push(path, undefined, { scroll: false });
+  }
+
   return (
     <div
       className={clsx({
@@ -18,11 +31,36 @@ const NavBar = forwardRef(function NavBar({ className }, ref) {
       })}
       ref={ref}
     >
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef}>
         <div className={styles.links}>
-          <Link href={"/"}>Home</Link>
-          <Link href={"#whyus"}>Why Us</Link>
-          <Link href={"#services"}>Our Services</Link>
+          <Link
+            href={"/"}
+            scroll={false}
+            onClick={(e) => handleClick(e, "#hero")}
+          >
+            Home
+          </Link>
+          <Link
+            href={"#whyus"}
+            scroll={false}
+            onClick={(e) => handleClick(e, "#whyus")}
+          >
+            Why Us
+          </Link>
+          <Link
+            href={"#services"}
+            scroll={false}
+            onClick={(e) => handleClick(e, "#services")}
+          >
+            Our Services
+          </Link>
+          <Link
+            href={"#contact"}
+            scroll={false}
+            onClick={(e) => handleClick(e, "#contact")}
+          >
+            Contact Us
+          </Link>
         </div>
         <div className={styles.buttons}>
           <Link href={"/hiring"}>
@@ -41,13 +79,47 @@ const NavBar = forwardRef(function NavBar({ className }, ref) {
   );
 });
 
-export default function Header() {
+export default function Header({ dark }) {
+  const lastY = useRef(0);
+
   const navbarElement = useRef(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [transparency, setTransparency] = useState(0);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (!dark) {
+      window.onscroll = () => {
+        const y = document.body.scrollTop || document.documentElement.scrollTop;
+
+        const delta = y - lastY.current;
+
+        if (Math.abs(delta) > 2 && isNavOpen) {
+          if (delta > 0) setIsHeaderHidden(true);
+          else if (delta < 0) setIsHeaderHidden(false);
+        }
+
+        lastY.current = y;
+        setTransparency(Math.min(1, y / 400));
+      };
+    }
+  }, []);
 
   return (
     <>
-      <header className={styles.header}>
+      <header
+        className={clsx({
+          [styles.header]: true,
+          [styles.hidden]: isHeaderHidden,
+          [styles.dark]: dark,
+          [styles.menuopen]: isNavOpen,
+        })}
+        style={{
+          "--transparency": transparency,
+        }}
+        ref={headerRef}
+      >
         <Logo fill="#fff" />
         <MenuButton onClick={() => setIsNavOpen((isNavOpen) => !isNavOpen)} />
       </header>
@@ -56,6 +128,8 @@ export default function Header() {
         className={clsx({
           [styles.visible]: isNavOpen,
         })}
+        isNavOpen={isNavOpen}
+        setIsNavOpen={setIsNavOpen}
       />
     </>
   );
