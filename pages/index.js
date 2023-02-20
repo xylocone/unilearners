@@ -159,37 +159,6 @@ function Services() {
     if (inView) setHasComeIntoView(true);
   }, [inView]);
 
-  const services = [
-    {
-      title: "Home Tuitions",
-      description:
-        "We have experience and highly qualified tutors willing to share their knowledge at your doorstep.",
-    },
-    {
-      title: "Online Tuitions",
-      description:
-        "Connect with our professional tutors from anywhere in the world.",
-    },
-    {
-      title: "Competitive Exams",
-      description:
-        "Tutors for CUET/JEE/NEET/NDA/SSC/BANK and other competitive exams.",
-    },
-    {
-      title: "Programming Courses",
-      description:
-        "Courses on Java/C++/Python and other programming languages.",
-    },
-    {
-      title: "Kindergarten",
-      description: "Classes for kids (3-5 years)",
-    },
-    {
-      title: "Hobby Classes",
-      description: "Classes for fitness, music, playing guitar and much more.",
-    },
-  ];
-
   return (
     <div className={styles.services} id="services">
       <div
@@ -200,11 +169,6 @@ function Services() {
         ref={ref}
       >
         <h1 className={styles.title}>We Provide</h1>
-        <div className={styles.container}>
-          {services.map(({ title, description }) => (
-            <Service key={title} title={title} description={description} />
-          ))}
-        </div>
       </div>
       <div className={styles.background}>
         <RoundedSquares />
