@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, forwardRef } from "react";
-import { TagsInput } from "react-tag-input-component";
 import ReactCardFlip from "react-card-flip";
-import ReactSwitch from "react-switch";
+import { RadioGroup, RadioButton } from "react-radio-buttons";
+import Head from "next/head";
 
 // Internal dependencies
 import Header from "../components/Header";
@@ -28,12 +28,15 @@ export default function HiringForm() {
 
   return (
     <>
+      <Head>
+        <title>Become a Tutor | UnI Learners</title>
+      </Head>
       <Header dark />
       <div className={styles.hiring}>
         <div className={styles.content}>
           <h1 className={styles.heading}>Hire a Tutor</h1>
           <p className={styles.subheading}>
-            Hire an experienced tutor from UniLearners! Just fill out the form
+            Hire an experienced tutor from UnI Learners! Just fill out the form
             below and we&apos;ll get right back to you!
           </p>
           <div className={styles.container} ref={container}>
@@ -71,34 +74,35 @@ const Form = forwardRef(function Form(
   const [number, setNumber] = useState(0);
   const [subjects, setSubjects] = useState([]);
   const [hobbies, setHobbies] = useState([]);
-  const [isOnline, setIsOnline] = useState(true);
+  const [mode, setMode] = useState("");
   const [address, setAddress] = useState("");
   const [occupation, setOccupation] = useState("");
 
-  function handleButtonClick(e) {
-    const output = `
-    Name: ${name}
-    Email: ${email}
-    WhatsApp No.: ${number}
-    Subjects: ${subjects.join(" ")}
-    Hobbies: ${hobbies.join(" ")}
-    Mode: ${isOnline ? "Online" : "Offline"}
-    Address: ${address}
-    Guardian's Occupation: ${occupation}
-    `;
-
-    console.log("Clicked");
-
-    sendEmail(output);
+  function handleButtonClick() {
+    handleSubmit();
     setIsFormSubmitted(true);
   }
 
-  function sendEmail(output) {
-    console.log(output);
-  }
+  function handleSubmit() {
+    const body = `
+      Name: ${name}
+      Email: ${email}
+      Number: ${number}
+      Subjects: ${subjects}
+      Hobby Classes: ${hobbies}
+      Mode of study: ${mode}
+      Address: ${address}
+      Occupation: ${occupation}
+    `;
 
-  function handleSubmit(e) {
-    e.preventDefault();
+    fetch("/api/mail", {
+      headers: {
+        "Content-Type": "text/plain",
+      },
+      method: "POST",
+      body,
+    });
+    console.log(body);
   }
 
   return (
@@ -107,7 +111,7 @@ const Form = forwardRef(function Form(
         <form
           className={styles.form}
           ref={ref}
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => e.preventDefault()}
         >
           <div>
             <label htmlFor="hiring_name">Your name</label>
@@ -115,7 +119,6 @@ const Form = forwardRef(function Form(
               type="text"
               id="hiring_name"
               onChange={(e) => setName(e.currentTarget.value)}
-              required
             />
           </div>
           <div>
@@ -124,7 +127,6 @@ const Form = forwardRef(function Form(
               type="email"
               id="hiring_email"
               onChange={(e) => setEmail(e.currentTarget.value)}
-              required
             />
           </div>
           <div>
@@ -133,33 +135,50 @@ const Form = forwardRef(function Form(
               type="number"
               id="hiring_number"
               onChange={(e) => setNumber(parseInt(e.currentTarget.value, 10))}
-              required
             />
           </div>
           <div>
             <label htmlFor="hiring_subjects">Subjects</label>
-            <TagsInput
-              value={subjects}
-              onChange={setSubjects}
+            <input
+              type="text"
               id="hiring_subjects"
               name="hiring_subjects"
-              placeHolder="Enter subjects here"
-              required
+              onChange={(e) => setSubjects(e.currentTarget.value)}
             />
           </div>
-          <div>
-            <label htmlFor="hiring_subjects">Online Mode?</label>
-            <br />
-            <ReactSwitch onChange={setIsOnline} checked={isOnline} />
+          <div className={styles.mode}>
+            <label htmlFor="hiring_mode">Mode of Tuition</label>
+            <RadioGroup onChange={setMode} horizontal>
+              <RadioButton
+                value="Online"
+                rootColor="black"
+                pointColor="rebeccapurple"
+              >
+                Online
+              </RadioButton>
+              <RadioButton
+                value="Offline"
+                rootColor="black"
+                pointColor="rebeccapurple"
+              >
+                Offline
+              </RadioButton>
+              <RadioButton
+                value="Any is preferred"
+                rootColor="black"
+                pointColor="rebeccapurple"
+              >
+                Any is preferred
+              </RadioButton>
+            </RadioGroup>
           </div>
           <div>
             <label htmlFor="hiring_hobbies">Hobby Classes</label>
-            <TagsInput
-              value={hobbies}
-              onChange={setHobbies}
+            <input
+              type="text"
               id="hiring_hobbies"
               name="hiring_hobbies"
-              placeHolder="Enter hobbies here"
+              onChange={(e) => setHobbies(e.currentTarget.value)}
             />
           </div>
           <div>
@@ -168,7 +187,6 @@ const Form = forwardRef(function Form(
               id="hiring_address"
               name="hiring_address"
               onChange={(e) => setAddress(e.currentTarget.value)}
-              required
             ></textarea>
           </div>
           <div>
@@ -180,7 +198,6 @@ const Form = forwardRef(function Form(
               id="hiring_occupation"
               name="hiring_occupation"
               onChange={(e) => setOccupation(e.currentTarget.value)}
-              required
             />
           </div>
           <div>

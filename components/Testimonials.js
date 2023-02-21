@@ -24,7 +24,7 @@ export default function Testimonials() {
             tutors like family members. No unncesserary hassles. That makes it
             easy for us to perform our duty as teachers.
           </p>
-          <p className={styles.attribution}>UnILearners Tutor</p>
+          <p className={styles.attribution}>UnI Learners Tutor</p>
         </div>
         <div className={styles.slide}>
           <p className={styles.testimony}>

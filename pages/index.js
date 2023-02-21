@@ -152,7 +152,8 @@ function WhyUs() {
             <p>
               <span className={styles.students}>Students</span> From Hyderabad,
               Bengaluru, <span className={styles.foreign}>Abu Dhabi</span>,{" "}
-              <span className={styles.foreign}>Dubai</span>, Lucknow, Delhi etc.
+              <span className={styles.foreign}>Dubai</span>, Gorakhpur, Lucknow,
+              Delhi etc.
             </p>
           </Counter>
         </div>

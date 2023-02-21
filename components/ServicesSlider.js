@@ -21,13 +21,13 @@ export default function ServicesSlider() {
       imgPath: "/service2.gif",
     },
     {
-      title: "Competitive Exams",
+      title: "Competitive Exams Prep",
       description:
         "Tutors for CUET/JEE/NEET/NDA/SSC/BANK and other competitive exams.",
       imgPath: "/service3.gif",
     },
     {
-      title: "Kindergarten",
+      title: "Kindergarten Classes",
       description: "Classes for kids (3-5 years)",
       imgPath: "/service4.gif",
     },
@@ -93,7 +93,7 @@ function Service({ title, description, imgPath }) {
   return (
     <div className={styles.service}>
       <div className={styles.image}>
-        <Image src={imgPath} alt={title} />
+        <Image loading="eager" src={imgPath} alt={title} />
       </div>
       <div className={styles.details}>
         <p className={styles.title}>{title}</p>

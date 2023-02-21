@@ -105,7 +105,9 @@
               width: 100%;
             }
 
-            > input,
+            > input[type="text"],
+            > input[type="email"],
+            > input[type="number"],
             textarea {
               // Custom inputs
 
@@ -139,6 +141,15 @@
 
               // Others
               background-color: black;
+            }
+          }
+          .mode {
+            > div > div > div > div:nth-child(2) {
+              // Display and Box Model
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0 !important;
             }
           }
         }
