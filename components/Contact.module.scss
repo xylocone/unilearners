@@ -24,9 +24,10 @@
     align-items: center;
     justify-content: center;
     flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 6vmax;
 
     height: 6vmax;
-    width: 6vmax;
     padding: 8px;
 
     // Others

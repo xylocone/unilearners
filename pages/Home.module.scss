@@ -14,9 +14,9 @@
   // Others
   background: linear-gradient(
     to bottom right,
-    $primary 30%,
-    tint($primary, 20%) 50%,
-    tint($tertiary, 30%)
+    tint($secondary, 30%) 30%,
+    tint($secondary, 50%) 50%,
+    tint($primary, 70%)
   );
   text-align: center;
   color: white;
@@ -73,7 +73,7 @@
 
         .uni {
           // Others
-          font-family: "Lobster", cursive;
+          font-family: "Dancing Script", cursive;
         }
       }
 
@@ -116,77 +116,6 @@
   }
 }
 
-.whyus {
-  // Positioning
-  position: relative;
-
-  // Display and Box Model
-  padding: 96px 64px;
-
-  // Others
-  background-color: $primary-white;
-
-  .background {
-    // Positioning
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    // Display and Box Model
-    height: 100%;
-    width: 100%;
-
-    // Others
-    pointer-events: none;
-
-    .shape1 {
-      // Positioning
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 10;
-
-      // Display and Box Model
-      height: 75px;
-      width: 100%;
-
-      // Others
-      clip-path: polygon(0 0, 100% 100%, 0 100%, 0 0);
-      background-color: tint($primary, 50%);
-      opacity: 0.5;
-    }
-
-    .shape2 {
-      // Positioning
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 5;
-
-      // Display and Box Model
-      height: 100px;
-      width: 100%;
-
-      // Others
-      clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
-
-      background-color: tint($secondary, 50%);
-    }
-  }
-
-  .counters {
-    // Display and Box Model
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 32px 16px;
-    gap: 16px;
-
-    @media screen and (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-}
-
 .services {
   // Positioning
   position: relative;
@@ -195,12 +124,12 @@
   padding: 96px 32px;
 
   @media screen and (min-width: 768px) {
-    padding: 96px 64px;
+    padding: 96px 96px;
   }
 
   // Others
   overflow: hidden;
-  background-color: $primary;
+  background-color: rgba(255, 255, 143, 0.966);
 
   .content {
     // Positioning
@@ -213,7 +142,6 @@
 
       // Others
       text-align: center;
-      color: white;
     }
 
     .container {
@@ -259,6 +187,118 @@
     // Display and Box Model
     height: 100%;
     width: 100%;
+  }
+}
+
+.whyus {
+  // Positioning
+  position: relative;
+  z-index: 0;
+
+  // Display and Box Model
+  padding: 96px 64px;
+
+  // Others
+  background-color: $primary-white;
+
+  .background {
+    // Positioning
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    // Display and Box Model
+    height: 100%;
+    width: 100%;
+
+    // Others
+    pointer-events: none;
+
+    .shape1 {
+      // Positioning
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+
+      // Display and Box Model
+      height: 75px;
+      width: 100%;
+
+      // Others
+      clip-path: polygon(0 0, 100% 100%, 0 100%, 0 0);
+      background-color: tint($primary, 50%);
+      opacity: 0.5;
+    }
+
+    .shape2 {
+      // Positioning
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+
+      // Display and Box Model
+      height: 100px;
+      width: 100%;
+
+      // Others
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
+
+      background-color: tint($secondary, 50%);
+    }
+
+    li {
+      // Others
+      opacity: 0.1;
+      background: tint($secondary, 90%);
+      border-radius: 16px;
+    }
+  }
+
+  .content {
+    // Positioning
+    position: relative;
+    z-index: 10;
+  }
+
+  .counters {
+    // Display and Box Model
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 32px 16px;
+    gap: 16px;
+
+    p {
+      // Display and Box Model
+      margin: 0;
+      max-width: 40ch;
+
+      // Others
+      font-size: 0.75rem;
+      @media screen and (min-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    .students {
+      // Display and Box Model
+      display: block;
+      // Others
+      font-size: 1rem;
+    }
+
+    .foreign {
+      // Display and Box Model
+      display: inline-block;
+      padding: 2px 4px;
+
+      // Others
+      background-color: $primary;
+      color: white;
+      border-radius: 4px;
+    }
   }
 }
 

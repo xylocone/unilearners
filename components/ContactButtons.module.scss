@@ -1,0 +1,98 @@
+@import "../styles/variables";
+
+.container {
+  // Variables
+  --animation-delay: 4s;
+  --animation-duration: 0.25s;
+
+  // Positioning
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 250;
+
+  // Display and Box Model
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  button {
+    // Positioning
+    position: relative;
+
+    // Display and Box Model
+    height: 6vmax;
+    width: 6vmax;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Others
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2rem;
+    }
+
+    svg {
+      color: white;
+    }
+
+    &::after {
+      // Positioning
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(0.5rem, -50%);
+
+      // Display and Box Model
+      padding: 8px;
+
+      // Others
+      font-size: 0.75rem;
+      background-color: white;
+      border-radius: 8px;
+      white-space: nowrap;
+      transform-origin: left;
+
+      animation: disappear var(--animation-duration) ease forwards;
+      animation-delay: var(--animation-delay);
+    }
+
+    &.whatsapp {
+      // Others
+      background-color: shade($tertiary, 20%);
+
+      &::after {
+        // Others
+        content: "Have a query?";
+      }
+    }
+
+    &.call {
+      // Others
+      background-color: tint($primary, 10%);
+
+      &::after {
+        // Others
+        content: "Call us now!";
+        animation-delay: calc(
+          var(--animation-delay) + var(--animation-duration)
+        );
+      }
+    }
+  }
+}
+
+@keyframes disappear {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 0;
+  }
+}

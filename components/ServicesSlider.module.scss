@@ -1,0 +1,132 @@
+@import "../styles/variables";
+
+.slider {
+  padding: 16px 4px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  // Others
+  overflow-x: hidden;
+}
+
+.list {
+  li {
+    // Display and Box Model
+    padding: 8px 0;
+
+    // Others
+    font-size: 1rem;
+
+    span {
+      // Display and Box Model
+      display: inline-block;
+      padding: 4px;
+    }
+
+    &.current span {
+      // Others
+      border-radius: 8px;
+      background-color: tint($secondary, 90%);
+      transition: background-color 1s ease;
+    }
+  }
+}
+
+.wrapper {
+  // Display and Box Model
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  // Others
+  transform: translateX(calc(var(--current-index) * -100%));
+  transition: transform 0.25s ease;
+}
+
+.servicewrapper {
+  // Display and Box Model
+  display: flex;
+  align-self: stretch;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.service {
+  // Display and Box Model
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 16px;
+
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+
+  // Others
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    // Display and Box Model
+    flex-direction: row;
+    align-items: stretch;
+
+    // Others
+    text-align: unset;
+
+    .image {
+      flex-grow: 0;
+    }
+    .details {
+      flex-grow: 1;
+    }
+  }
+
+  img {
+    max-width: 200px;
+  }
+
+  // Others
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 $secondary;
+
+  .details {
+    .title {
+      // Others
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: none;
+  }
+
+  35% {
+    transform: none;
+  }
+
+  37% {
+    transform: translateX(-33.33%);
+  }
+
+  62% {
+    transform: translateX(-33.33%);
+  }
+
+  64% {
+    transform: translateX(-66.66%);
+  }
+
+  98% {
+    transform: translate(-66.66%);
+  }
+}

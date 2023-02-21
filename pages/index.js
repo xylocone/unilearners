@@ -11,47 +11,27 @@ import Image from "../components/Image";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Counter from "../components/Counter";
-import Service from "../components/Service";
 import Waves from "../components/Waves";
 import RoundedSquares from "../components/RoundedSquares";
 import Map from "../components/Map";
 import { default as ContactComponent } from "../components/Contact";
-import WhatsAppButton from "../components/WhatsAppButton";
+import ContactButtons from "../components/ContactButtons";
 
 import styles from "./Home.module.scss";
+import ServicesSlider from "../components/ServicesSlider";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>UniLearners | Quality Education, Online and Offline</title>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+        <title>UnILearners | Quality Education, Online and Offline</title>
       </Head>
       <Header />
       <Hero />
-      <WhyUs />
       <Services />
+      <WhyUs />
       <Contact />
-      <WhatsAppButton />
+      <ContactButtons />
       <Footer />
     </>
   );
@@ -76,10 +56,10 @@ function Hero() {
       >
         <div className={styles.text}>
           <h1 className={styles.heading}>
-            <span className={styles.uni}>Uni </span>Learners
+            <span className={styles.uni}>UnI </span>Learners
           </h1>
           <h3 className={styles.subheading}>
-            Your child&apos;s future is our responsibility.
+            {'"Your child\'s future is our responsibility"'}
           </h3>
           <div className={styles.buttons}>
             <Link href={"/hiring"}>
@@ -107,50 +87,6 @@ function Hero() {
   );
 }
 
-function WhyUs() {
-  const { inView, ref } = useInView({ threshold: 0.3 });
-  const [hasComeIntoView, setHasComeIntoView] = useState(false);
-
-  useEffect(() => {
-    if (inView) setHasComeIntoView(true);
-  }, [inView]);
-
-  return (
-    <div className={styles.whyus} id="whyus">
-      <div className={styles.background}>
-        <div className={styles.shape1}></div>
-        <div className={styles.shape2}></div>
-      </div>
-      <div
-        className={clsx({
-          [styles.content]: true,
-          [styles.inView]: hasComeIntoView,
-        })}
-        ref={ref}
-      >
-        <h1>Why Us?</h1>
-        <p>
-          We at UniLearners are loved by both students and parents alike;
-          because of our quality, affordability and an unwavering passion for
-          teaching.
-        </p>
-        <Testimonials />
-        <div className={styles.counters}>
-          <Counter val={10} plus={true}>
-            Subjects Taught
-          </Counter>
-          <Counter val={45} plus={true}>
-            Qualified Teachers
-          </Counter>
-          <Counter val={500} plus={true}>
-            Satisfied Students
-          </Counter>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Services() {
   const { inView, ref } = useInView({ threshold: 0.3 });
   const [hasComeIntoView, setHasComeIntoView] = useState(false);
@@ -169,9 +105,57 @@ function Services() {
         ref={ref}
       >
         <h1 className={styles.title}>We Provide</h1>
+        <ServicesSlider />
       </div>
+      <div className={styles.background}></div>
+    </div>
+  );
+}
+
+function WhyUs() {
+  const { inView, ref } = useInView({ threshold: 0.3 });
+  const [hasComeIntoView, setHasComeIntoView] = useState(false);
+
+  useEffect(() => {
+    if (inView) setHasComeIntoView(true);
+  }, [inView]);
+
+  return (
+    <div className={styles.whyus} id="whyus">
       <div className={styles.background}>
         <RoundedSquares />
+        <div className={styles.shape1}></div>
+        <div className={styles.shape2}></div>
+      </div>
+      <div
+        className={clsx({
+          [styles.content]: true,
+          [styles.inView]: hasComeIntoView,
+        })}
+        ref={ref}
+      >
+        <h1>Why Us?</h1>
+        <p>
+          We at UniLearners are loved by both students and parents alike;
+          because of our quality, affordability and an unwavering passion for
+          teaching.
+        </p>
+        <Testimonials />
+        <div className={styles.counters}>
+          <Counter val={20} plus={true}>
+            Subjects Taught
+          </Counter>
+          <Counter val={45} plus={true}>
+            Qualified Tutors
+          </Counter>
+          <Counter val={100} plus={true}>
+            <p>
+              <span className={styles.students}>Students</span> From Hyderabad,
+              Bengaluru, <span className={styles.foreign}>Abu Dhabi</span>,{" "}
+              <span className={styles.foreign}>Dubai</span>, Lucknow, Delhi etc.
+            </p>
+          </Counter>
+        </div>
       </div>
     </div>
   );
@@ -199,14 +183,9 @@ function Contact() {
         </p>
         <div className={styles.contacts}>
           <ContactComponent
-            imgPath={"/Male.svg"}
-            name="Arjun Singh"
-            number="+91 123456789"
-          />
-          <ContactComponent
             imgPath={"/Female.svg"}
-            name="Julia Roberts"
-            number="+91 123456789"
+            name="Sandhiyika"
+            number="+91 9451412323"
           />
         </div>
         <Map className={styles.map} />

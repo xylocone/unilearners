@@ -66,7 +66,7 @@
 
         // Others
         border-radius: 16px;
-        background-color: tint($primary, 40%);
+        background-color: tint($primary, 70%);
 
         @media screen and (min-width: 768px) {
           border-radius: 0 16px 16px 0;
@@ -105,7 +105,8 @@
               width: 100%;
             }
 
-            > input {
+            > input,
+            textarea {
               // Custom inputs
 
               // Display and Box Model
@@ -120,6 +121,15 @@
                 // Others
                 outline: none;
               }
+            }
+            textarea {
+              // Display and Box Model
+              width: 100%;
+              min-height: 150px;
+              padding: 16px;
+
+              // Others
+              resize: none;
             }
 
             > button {
@@ -141,8 +151,12 @@
 
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           flex-direction: column;
+
+          @media screen and (min-width: 768px) {
+            justify-content: center;
+          }
 
           /* Others */
           text-align: center;

@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 // Internal dependencies
+import Button from "./Button";
+
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
@@ -15,11 +17,15 @@ export default function Footer() {
 function FooterMenu() {
   return (
     <div className={styles.menu}>
-      <Link href={"#hero"} scroll={false}>
-        Home
+      <Link href={"/#hero"} scroll={false}>
+        <Button>Home</Button>
       </Link>
-      <Link href={"/hiring"}>Hire a Tutor</Link>
-      <Link href={"/tutoring"}>Become a Tutor</Link>
+      <Link href={"/hiring"}>
+        <Button type="secondary">Hire a Tutor</Button>
+      </Link>
+      <Link href={"/tutoring"}>
+        <Button type="secondary">Become a Tutor</Button>
+      </Link>
     </div>
   );
 }

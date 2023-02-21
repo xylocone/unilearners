@@ -66,17 +66,39 @@ const Form = forwardRef(function Form(
   { isFormSubmitted, setIsFormSubmitted },
   ref
 ) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState(0);
   const [subjects, setSubjects] = useState([]);
   const [hobbies, setHobbies] = useState([]);
   const [isOnline, setIsOnline] = useState(true);
+  const [address, setAddress] = useState("");
+  const [occupation, setOccupation] = useState("");
 
-  function handleButtonClick() {
-    ref.current.submit();
+  function handleButtonClick(e) {
+    const output = `
+    Name: ${name}
+    Email: ${email}
+    WhatsApp No.: ${number}
+    Subjects: ${subjects.join(" ")}
+    Hobbies: ${hobbies.join(" ")}
+    Mode: ${isOnline ? "Online" : "Offline"}
+    Address: ${address}
+    Guardian's Occupation: ${occupation}
+    `;
+
+    console.log("Clicked");
+
+    sendEmail(output);
+    setIsFormSubmitted(true);
+  }
+
+  function sendEmail(output) {
+    console.log(output);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsFormSubmitted(true);
   }
 
   return (
@@ -89,15 +111,30 @@ const Form = forwardRef(function Form(
         >
           <div>
             <label htmlFor="hiring_name">Your name</label>
-            <input type="text" id="hiring_name" />
+            <input
+              type="text"
+              id="hiring_name"
+              onChange={(e) => setName(e.currentTarget.value)}
+              required
+            />
           </div>
           <div>
             <label htmlFor="hiring_email">Your email</label>
-            <input type="email" id="hiring_email" />
+            <input
+              type="email"
+              id="hiring_email"
+              onChange={(e) => setEmail(e.currentTarget.value)}
+              required
+            />
           </div>
           <div>
             <label htmlFor="hiring_number">WhatsApp No.</label>
-            <input type="number" id="hiring_number" />
+            <input
+              type="number"
+              id="hiring_number"
+              onChange={(e) => setNumber(parseInt(e.currentTarget.value, 10))}
+              required
+            />
           </div>
           <div>
             <label htmlFor="hiring_subjects">Subjects</label>
@@ -107,6 +144,7 @@ const Form = forwardRef(function Form(
               id="hiring_subjects"
               name="hiring_subjects"
               placeHolder="Enter subjects here"
+              required
             />
           </div>
           <div>
@@ -125,15 +163,33 @@ const Form = forwardRef(function Form(
             />
           </div>
           <div>
+            <label htmlFor="hiring_address">Address</label>
+            <textarea
+              id="hiring_address"
+              name="hiring_address"
+              onChange={(e) => setAddress(e.currentTarget.value)}
+              required
+            ></textarea>
+          </div>
+          <div>
+            <label htmlFor="hiring_occupation">
+              Guardian&apos;s occupation
+            </label>
+            <input
+              type="text"
+              id="hiring_occupation"
+              name="hiring_occupation"
+              onChange={(e) => setOccupation(e.currentTarget.value)}
+              required
+            />
+          </div>
+          <div>
             <Button onClick={() => handleButtonClick()} type="primary">
               Submit
             </Button>
           </div>
         </form>
-        <div
-          className={styles.flippedform}
-          onClick={() => setIsFormSubmitted(false)}
-        >
+        <div className={styles.flippedform}>
           <h2>Thank You!</h2>
           <p>
             We have received your information and will be contacting you soon!

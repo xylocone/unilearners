@@ -54,7 +54,7 @@ const NavBar = forwardRef(function NavBar({ className, setIsNavOpen }, ref) {
                 scroll={false}
                 onClick={(e) => handleClick(e, "#services")}
               >
-                Our Services
+                <span className={styles.our}>Our</span> Services
               </Link>
               <Link
                 href={"#contact"}

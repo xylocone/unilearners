@@ -21,17 +21,21 @@ export default function Testimonials() {
         <div className={styles.slide}>
           <p className={styles.testimony}>
             It feels amazing to be a part of UniLearners. They treat their
-            tutors like family members.
+            tutors like family members. No unncesserary hassles. That makes it
+            easy for us to perform our duty as teachers.
           </p>
-          <p className={styles.attribution}>Srikant Jaiswal, Tutor</p>
+          <p className={styles.attribution}>UnILearners Tutor</p>
         </div>
         <div className={styles.slide}>
           <p className={styles.testimony}>
-            Lorem ipsum doler sit amet consectetur. This is just some filler
-            text. This will be replaced by actual testimonials that the site
-            owner provides.
+            As a parent, I am always looking for ways to support my child&apos;s
+            education. Hiring a tutor from UnILearners was one of the best
+            decisions made. The tutor was professional, experienced, and able to
+            identify areas where my child needed extra help. With the
+            tutor&apos;s help, my child&apos;s grades and confidence improved,
+            and I am grateful for the support provided.
           </p>
-          <p className={styles.attribution}>Cicero, Tutor</p>
+          <p className={styles.attribution}>Mrs. Priyanka Sharma, a Parent</p>
         </div>
       </div>
     </div>
