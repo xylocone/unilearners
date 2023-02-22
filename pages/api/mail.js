@@ -1,17 +1,19 @@
-import mail from "@sendgrid/mail";
+import ElasticMail from "nodelastic";
+import * as dotenv from "dotenv";
 
-export default async function handler(req, res) {
-  const text = req.body;
+dotenv.config();
+const client = new ElasticMail(process.env.ELASTIC_WEB_API_KEY);
 
-  mail.setApiKey(process.env.API_KEY);
-
-  mail.send({
-    from: "uandilearners@gmail.com",
-    to: "uandilearners@gmail.com",
-    subject: "Response from Website Form",
-    text,
-  });
-
-  console.log("Email sent");
-  res.status(200).json({ message: "Email sent" });
+export default function handle(req, res) {
+  client
+    .send({
+      from: "uandilearners@gmail.com",
+      fromName: "UnI Learners",
+      subject: "Response from unilearners.com form",
+      msgTo: ["uandilearners@gmail.com"],
+      bodyText: req.body,
+    })
+    .then((output) => {
+      res.send(output);
+    });
 }

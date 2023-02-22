@@ -144,6 +144,24 @@
             }
           }
           .mode {
+            > div {
+              // Display and Box Model
+              flex-direction: column;
+
+              > div {
+                // Display and Box Model
+                width: 100%;
+              }
+
+              @media screen and (min-width: 768px) {
+                flex-direction: row;
+
+                div {
+                  // Display and Box Model
+                  width: unset;
+                }
+              }
+            }
             > div > div > div > div:nth-child(2) {
               // Display and Box Model
               display: inline-flex;
