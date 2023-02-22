@@ -7,10 +7,8 @@
   padding: 16px;
   width: 100%;
   max-width: 500px;
-
-  @media screen and (max-width: 360px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
+  text-align: center;
 
   // Others
   background-color: white;
@@ -27,7 +25,7 @@
     flex-shrink: 0;
     flex-basis: 6vmax;
 
-    height: 6vmax;
+    width: 10vmax;
     padding: 8px;
 
     // Others
@@ -46,7 +44,7 @@
     > span {
       // Display and Box Model
       display: block;
-      white-space: nowrap;
+      white-space: break-spaces;
     }
 
     .name {
@@ -61,12 +59,10 @@
 
   .buttons {
     // Display and Box Model
+    display: flex;
+    gap: 16px;
     flex-basis: 0;
     flex-grow: 2;
-
-    > a {
-      display: block;
-    }
 
     button {
       // Display and Box Model

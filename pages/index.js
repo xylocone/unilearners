@@ -16,15 +16,16 @@ import RoundedSquares from "../components/RoundedSquares";
 import Map from "../components/Map";
 import { default as ContactComponent } from "../components/Contact";
 import ContactButtons from "../components/ContactButtons";
+import Bubbles from "../components/Bubbles";
+import ServicesSlider from "../components/ServicesSlider";
 
 import styles from "./Home.module.scss";
-import ServicesSlider from "../components/ServicesSlider";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>UnILearners | Quality Education, Online and Offline</title>
+        <title>UnI Learners | Quality Education, Online and Offline</title>
       </Head>
       <Header />
       <Hero />
@@ -107,7 +108,9 @@ function Services() {
         <h1 className={styles.title}>We Provide</h1>
         <ServicesSlider />
       </div>
-      <div className={styles.background}></div>
+      <div className={styles.background}>
+        <Bubbles />
+      </div>
     </div>
   );
 }
@@ -185,7 +188,7 @@ function Contact() {
         <div className={styles.contacts}>
           <ContactComponent
             imgPath={"/Female.svg"}
-            name="Sandhiyika"
+            name="uandilearners​@gmail.com"
             number="+91 9451412323"
           />
         </div>

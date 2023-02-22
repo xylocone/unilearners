@@ -130,7 +130,7 @@
 
   // Others
   overflow: hidden;
-  background-color: rgba(255, 255, 143, 0.966);
+  background-color: rgb(228, 215, 255);
 
   .content {
     // Positioning
@@ -142,7 +142,8 @@
       margin-bottom: 64px;
 
       // Others
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-family: "Kalam", cursive;
+      font-size: 2.4rem;
       text-align: center;
     }
 
@@ -189,6 +190,12 @@
     // Display and Box Model
     height: 100%;
     width: 100%;
+
+    // Others
+    background: url("/weprovide.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
   }
 }
 
