@@ -46,7 +46,7 @@ export default function Document() {
         />
         <meta
           name="description"
-          content="Best tutors for students across the world, including Lucknow, Gorakhpur, Delhi, Ahmedabad, Dubai, Abu Dhabi, Hyderabad, Bengaluru etc."
+          content="Best tuitions, job, tutors, coaching for students across the world, including Lucknow, Gorakhpur, Delhi, Admedabad, Dubai, Abu Dhabi, Hyderabad, Bengaluru, Prayagraj, Jaipur, Bhopal, Varanasi, Canada, USA, UAE, Pune, Bombay, Mumbai, Maharashtra etc."
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
